@@ -1,25 +1,34 @@
 <?php
-
-$server = 'localhost';
-$username = 'root';
-$db_password = '';
-$db_name = 'isu-ehealth_mate_db';
+// Define database credentials
+$username = "doadmin";
+$password = "AVNS_Gu-KdKHprSL7KLYvWd8";
+$host = "db-ehealthmate-do-user-14609104-0.b.db.ondigitalocean.com";
+$port = "25060";
+$database = "defaultdb";
+$sslmode = "required";
 
 try {
-    $ATTR = [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC];
-    // Use a DSN (Data Source Name) for better clarity
-    $dsn = "mysql:host=$server;dbname=$db_name;charset=utf8mb4";
-    
-    // Create the PDO connection
-    $con = new PDO($dsn, $username, $db_password, $ATTR);
-    
-    // You can optionally set the character set directly on the connection
-    $con->exec("SET CHARACTER SET utf8mb4");
+    // Create a PDO database connection
+    $dsn = "pgsql:host=$host;port=$port;dbname=$database;sslmode=$sslmode";
+    $pdo = new PDO($dsn, $username, $password);
 
-    // Uncomment the line below if you want to display a success message
-    // echo 'Connection Success!';
+    // Set PDO to throw exceptions on errors
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+    echo "Connected successfully<br>";
+
+    // Example: Execute a query to retrieve data from the users table
+    $sql = "SELECT * FROM your_table_name"; // Replace your_table_name with your actual table name
+    $stmt = $pdo->query($sql);
+    
+    // Fetch and display results
+    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+        echo "User ID: " . $row['user_id'] . ", Username: " . $row['username'] . "<br>";
+    }
+
+    // Close the PDO connection when done
+    $pdo = null;
 } catch (PDOException $e) {
-    $array = array('result' => false, 'msg' =>  "Connection failed: " . $e->getMessage());
-    echo json_encode($array);
+    die("Connection failed: " . $e->getMessage());
 }
+?>
