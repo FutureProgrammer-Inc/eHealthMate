@@ -1,14 +1,15 @@
-<?php
-session_start();
-if (!isset($_SESSION['auth'])) {
-    header('location: login.php');
-}
-include 'template/header.php';
-?>
+consult.php<?php
+            session_start();
+            if (!isset($_SESSION['auth'])) {
+                header('location: login.php');
+            }
+            include 'template/header.php';
+            ?>
 
 
 <body class="app">
     <header class="app-header fixed-top">
+
         <?php
         include 'partials/header.php';
         include 'partials/sidebar.php';
@@ -23,7 +24,7 @@ include 'template/header.php';
                 <h1 class="app-page-title">Consult</h1>
 
                 <?php
-
+                include 'search_area/search_for_consultation.php';
                 ?>
 
             </div><!--//container-fluid-->
@@ -40,7 +41,6 @@ include 'template/header.php';
     include 'modal/logout.php';
     include 'template/scripts.php';
     ?>
-
 
 </body>
 

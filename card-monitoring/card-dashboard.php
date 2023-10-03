@@ -55,7 +55,6 @@
 	</div>
 
 	<?php
-	include('config/db_config.php');
 
 	$courses = array("BSIT", "BSA"); // Add more courses if needed
 

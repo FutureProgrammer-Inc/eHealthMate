@@ -25,6 +25,7 @@ include 'template/header.php';
 				<?php
 				include 'card-monitoring/card-dashboard.php';
 
+
 				?>
 
 			</div><!--//container-fluid-->

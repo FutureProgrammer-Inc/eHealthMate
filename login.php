@@ -37,17 +37,27 @@ include 'template/header.php';
 							</center>
 							<hr>
 						</form>
-						<div class="auth-option text-center pt-5">No Account? Sign up <a class="text-link" href="register.php">here</a>.</div>
 					</div><!--//auth-form-container-->
 
 				</div><!--//auth-body-->
-
-				<?php
-				include 'template/scripts.php';
-				include 'partials/footer.php'
-				?>
 			</div><!--//flex-column-->
+
+			<?php
+			include 'template/scripts.php'; // Include your scripts file here
+			include 'partials/footer.php'; // Include your footer file here
+			?>
 		</div><!--//auth-main-col-->
+		<div class="col-12 col-md-5 col-lg-6 h-100 auth-background-col">
+			<div class="auth-background-holder">
+			</div>
+			<div class="auth-background-mask"></div>
+			<div class="auth-background-overlay p-3 p-lg-5">
+				<div class="d-flex flex-column align-content-end h-100">
+					<div class="h-100"></div>
+				</div>
+			</div><!--//auth-background-overlay-->
+		</div><!--//auth-background-col-->
+
 	</div><!--//row-->
 
 	<!-- jQuery -->
@@ -58,16 +68,20 @@ include 'template/header.php';
 			let formData = $(this).serialize();
 			$.ajax({
 				type: 'POST',
-				url: 'config/Check_Login.php',
+				url: 'config/Check_Login.php', // Replace with the correct path to your Check_Login.php file
 				data: formData,
 				dataType: 'json',
 				success: function(response) {
 					console.log(response);
 					if (response.status === true) {
-						location.reload();
+						location.href = "otp.php?id=" + response.message; // Corrected line
 					} else {
 						alert(response.message);
 					}
+				},
+				error: function(xhr, status, error) {
+					console.error(xhr.responseText);
+					alert("An error occurred during the AJAX request.");
 				}
 			});
 		});

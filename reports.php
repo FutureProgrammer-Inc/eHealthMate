@@ -21,10 +21,14 @@ include 'template/header.php';
             <div class="container-xl">
 
                 <h1 class="app-page-title">Reports</h1>
+                <button class="btn btn-secondary" type="button">button</button>
+                <button class="btn btn-secondary" type="button">button</button>
+                <button class="btn btn-secondary" type="button">button</button>
+                <button class="btn btn-secondary" type="button">button</button>
+                <button class="btn btn-secondary" type="button">button</button>
+                    <?php
 
-                <?php
-
-                ?>
+                    ?>
 
             </div><!--//container-fluid-->
         </div><!--//app-content-->
