@@ -1,3 +1,8 @@
+<?php
+include 'loading_screen/loading.php';
+?>
+
+
 <div class="app-header-inner">
     <div class="container-fluid py-2">
         <div class="app-header-content">

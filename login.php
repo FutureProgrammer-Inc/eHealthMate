@@ -33,7 +33,7 @@ include 'template/header.php';
 								</div>
 							</div>
 							<center>
-								<button type="submit" class="btn btn-primary btn-user btn-block">Login</button>
+								<button type="submit" class="btn btn-primary btn-user btn-block" id="loginButton">Login</button>
 							</center>
 							<hr>
 						</form>
@@ -60,12 +60,26 @@ include 'template/header.php';
 
 	</div><!--//row-->
 
+	<!-- Loading screen -->
+	<div id="loading" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255, 255, 255, 0.8); z-index: 9999;">
+		<div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+			<div class="spinner-border" role="status">
+				<span class="sr-only">Loading...</span>
+			</div>
+			<p>Loading...</p>
+		</div>
+	</div>
+
 	<!-- jQuery -->
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script>
 		$('#loginForm').on('submit', function(e) {
 			e.preventDefault();
 			let formData = $(this).serialize();
+
+			// Show the loading screen
+			$('#loading').show();
+
 			$.ajax({
 				type: 'POST',
 				url: 'config/Check_Login.php', // Replace with the correct path to your Check_Login.php file
@@ -74,7 +88,8 @@ include 'template/header.php';
 				success: function(response) {
 					console.log(response);
 					if (response.status === true) {
-						location.href = "otp.php?id=" + response.message; // Corrected line
+						// Redirect to the OTP page
+						location.href = "otp.php?id=" + response.message;
 					} else {
 						alert(response.message);
 					}
@@ -82,6 +97,10 @@ include 'template/header.php';
 				error: function(xhr, status, error) {
 					console.error(xhr.responseText);
 					alert("An error occurred during the AJAX request.");
+				},
+				complete: function() {
+					// Hide the loading screen when the request is complete
+					$('#loading').hide();
 				}
 			});
 		});
