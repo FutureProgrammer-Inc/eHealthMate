@@ -23,7 +23,7 @@ include 'template/header.php';
                 <h1 class="app-page-title">Consult</h1>
 
                 <?php
-
+                include 'search_area/search_for_doc_consult.php';
                 ?>
 
             </div><!--//container-fluid-->
