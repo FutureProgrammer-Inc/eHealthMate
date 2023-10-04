@@ -1,6 +1,6 @@
 <?php
 
-$server = 'mongodb+srv://ehealthmate-5c5c20f9.mongo.ondigitalocean.commongodb+srv://ehealthmate-5c5c20f9.mongo.ondigitalocean.com';
+$server = 'ehealthmate-do-user-14609104-0.b.db.ondigitalocean.comehealthmate-do-user-14609104-0.b.db.ondigitalocean.comehealthmate-do-user-14609104-0.b.db.ondigitalocean.com';
 $username = 'doadmin';
 $db_password = '162QR5Y870CVrcp9';
 $db_name = 'isu-ehealthmate_db';
