@@ -1,14 +1,15 @@
 <?php
 
-$server = 'localhost';
-$username = 'root';
-$db_password = '';
+$server = 'ehealthmate-do-user-14609104-0.b.db.ondigitalocean.comehealthmate-do-user-14609104-0.b.db.ondigitalocean.comehealthmate-do-user-14609104-0.b.db.ondigitalocean.com';
+$username = 'doadmin';
+$db_password = '162QR5Y870CVrcp9';
 $db_name = 'isu-ehealthmate_db';
+$port = '25060';
 
 try {
     $ATTR = [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC];
     // Use a DSN (Data Source Name) for better clarity
-    $dsn = "mysql:host=$server;dbname=$db_name;charset=utf8mb4";
+    $dsn = "mysql:host=$server;dbname=$db_name;charset=utf8mb4;port=$port";
 
     // Create the PDO connection
     $con = new PDO($dsn, $username, $db_password, $ATTR);

@@ -82,7 +82,7 @@ include 'template/header.php';
 
 			$.ajax({
 				type: 'POST',
-				url: 'config/Check_Login.php', // Replace with the correct path to your Check_Login.php file
+				url: '/config/Check_Login.php', // Replace with the correct path to your Check_Login.php file
 				data: formData,
 				dataType: 'json',
 				success: function(response) {
