@@ -1,0 +1,155 @@
+/* Reset CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styles */
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* Save To Image Link Styles */
+#save_to_image {
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  text-decoration: none;
+}
+
+/* Invoice Container Styles */
+.invoice-container {
+  margin: 0 auto;
+  padding: 30px;
+  border: 1px solid #eee;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  font: 16px/24px "Helvetica Neue", Arial, Helvetica, sans-serif;
+  color: #555;
+}
+
+.invoice-container table {
+  width: 100%;
+  text-align: left;
+}
+
+.invoice-container table td {
+  padding: 5px;
+  vertical-align: top;
+}
+
+.invoice-container table tr td:nth-child(2) {
+  text-align: right;
+}
+
+/* Invoice Header Styles */
+.invoice-container table tr.top table td {
+  padding-bottom: 20px;
+  display: none;
+}
+
+.invoice-container table tr.top table td.title {
+  font-size: 45px;
+  line-height: 45px;
+  color: #333;
+}
+
+/* Invoice Information Styles */
+.invoice-container table tr.information table td {
+  padding-bottom: 40px;
+  display: none;
+}
+
+/* Invoice Heading Styles */
+.invoice-container table tr.heading td {
+  background: #eee;
+  border-bottom: 1px solid #ddd;
+  font-weight: bold;
+}
+
+/* Invoice Details Styles */
+.invoice-container table tr.details td {
+  padding-bottom: 20px;
+}
+
+/* Invoice Item Styles */
+.invoice-container table tr.item td {
+  border-bottom: 1px solid #eee;
+}
+
+/* Invoice Last Item Styles */
+.invoice-container table tr.item.last td {
+  border-bottom: none;
+}
+
+/* Invoice Total Styles */
+.invoice-container table tr.total td:nth-child(2) {
+  border-top: 2px solid #eee;
+  font-weight: bold;
+}
+
+/* Buttons Container Styles */
+.buttons-container {
+  max-width: 800px;
+  height: 80px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+/* Button Styles */
+.buttons-container button {
+  margin: 5px;
+  border: none;
+  outline: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  color: #fff;
+  transition: all 0.5s ease-in;
+}
+
+/* Save Button Styles */
+#save {
+  background-color: green;
+}
+
+/* Print Button Styles */
+#print {
+  background-color: blue;
+}
+
+/* Hover Styles for Buttons */
+#print:hover, #save:hover {
+  background-color: #333;
+}
+
+/* CSS for Print */
+@media print {
+  .invoice-container {
+    max-width: unset;
+    box-shadow: none;
+    border: 0;
+    background-color: white;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 15px;
+    font-size: 14px;
+    line-height: 18px;
+    color: #555;
+  }
+}
+
+/* Responsive Styles for Smaller Screens */
+@media screen and (max-width: 600px) {
+  .invoice-container {
+    padding: 15px;
+  }
+}

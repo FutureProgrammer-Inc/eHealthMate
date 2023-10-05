@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Health Trends</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <h1>
+      Graphical Representation of Student Health Trends and Medication Usage
+    </h1>
+    <div style="width: 80%; margin: auto">
+      <canvas id="healthChart"></canvas>
+    </div>
+
+    <script>
+      // Sample data for demonstration purposes
+      const healthData = {
+        labels: ["January", "February", "March", "April", "May"],
+        datasets: [
+          {
+            label: "Medication Usage",
+            backgroundColor: "rgba(75, 192, 192, 0.2)",
+            borderColor: "rgba(75, 192, 192, 1)",
+            borderWidth: 1,
+            data: [12, 19, 3, 5, 2],
+          },
+          {
+            label: "Health Trends",
+            backgroundColor: "rgba(255, 99, 132, 0.2)",
+            borderColor: "rgba(255, 99, 132, 1)",
+            borderWidth: 1,
+            data: [10, 8, 15, 12, 14],
+          },
+        ],
+      };
+
+      const ctx = document.getElementById("healthChart").getContext("2d");
+      const healthChart = new Chart(ctx, {
+        type: "bar",
+        data: healthData,
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

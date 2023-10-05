@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Health Trends</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+      /* Add your CSS styles here */
+      body {
+        font-family: Arial, sans-serif;
+      }
+      .buttons-container {
+        text-align: center;
+        margin-top: 20px;
+      }
+      .invoice-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      .header {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      h1 {
+        font-size: 24px;
+      }
+      h2 {
+        font-size: 20px;
+      }
+      h3 {
+        font-size: 18px;
+        text-align: center;
+      }
+      p {
+        text-align: justify;
+        margin-bottom: 10px;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+      th,
+      td {
+        border: 1px solid #000;
+        padding: 8px;
+      }
+      .footer {
+        text-align: right;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="buttons-container">
+      <button id="save">Save</button>
+      <button id="print">Print</button>
+    </div>
+    <div class="invoice-container">
+      <div class="header">
+        <img
+          src="your-logo.png"
+          alt="Your Logo"
+          style="height: 70px; width: 70px"
+        />
+        <h3>Your University or Organization Name</h3>
+        <h5>Your Location</h5>
+      </div>
+      <br />
+      <br />
+      <h1>
+        Graphical Representation of Student Health Trends and Medication Usage
+      </h1>
+      <div style="width: 80%; margin: auto">
+        <canvas id="healthChart"></canvas>
+      </div>
+      <div class="footer">
+        <span id="date">October 5, 2023</span>
+      </div>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <div class="footer">
+        <span id="signature">Signature</span>
+      </div>
+    </div>
+    <script>
+      // Sample data for demonstration purposes
+      const healthData = {
+        labels: ["January", "February", "March", "April", "May"],
+        datasets: [
+          {
+            label: "Medication Usage",
+            backgroundColor: "rgba(75, 192, 192, 0.2)",
+            borderColor: "rgba(75, 192, 192, 1)",
+            borderWidth: 1,
+            data: [12, 19, 3, 5, 2],
+          },
+          {
+            label: "Health Trends",
+            backgroundColor: "rgba(255, 99, 132, 0.2)",
+            borderColor: "rgba(255, 99, 132, 1)",
+            borderWidth: 1,
+            data: [10, 8, 15, 12, 14],
+          },
+        ],
+      };
+
+      const ctx = document.getElementById("healthChart").getContext("2d");
+      const healthChart = new Chart(ctx, {
+        type: "bar",
+        data: healthData,
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
